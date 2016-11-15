@@ -1,6 +1,7 @@
 package ca.stclaircollege.crazycandy;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,7 +16,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        CalculatorFragment.OnFragmentInteractionListener,
+        ContactFragment.OnFragmentInteractionListener,
+        EventFragment.OnFragmentInteractionListener,
+        LocationFragment.OnFragmentInteractionListener,
+        NutritionFragment.OnFragmentInteractionListener,
+        ShowFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,5 +107,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri){
+        //you can leave it empty
     }
 }
