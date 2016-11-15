@@ -15,6 +15,10 @@
             android:icon="@drawable/ic_photo_size_select_actual_black_24dp"
             android:title="Candy Party" />
         <item
+            android:id="@+id/nav_nutrition"
+            android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
+            android:title="Nutrition Facts" />
+        <item
             android:id="@+id/nav_location"
             android:icon="@drawable/ic_add_location_black_24dp"
             android:title="Store Location" />
