@@ -1,5 +1,7 @@
 package ca.stclaircollege.crazycandy;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -90,17 +92,17 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_candyShow) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_calculator) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_event) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_nutrition) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_location) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_contact) {
 
         }
 
