@@ -1,12 +1,12 @@
 package ca.stclaircollege.crazycandy;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity
         LocationFragment.OnFragmentInteractionListener,
         NutritionFragment.OnFragmentInteractionListener,
         ShowFragment.OnFragmentInteractionListener {
+
+    FragmentManager fm = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,17 +95,41 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_candyShow) {
-            // Handle the camera action
+            FragmentTransaction trans = fm.beginTransaction();
+            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.replace(R.id.mainFrame, new ShowFragment());
+            trans.addToBackStack(null);
+            trans.commit();
         } else if (id == R.id.nav_calculator) {
-
+            FragmentTransaction trans = fm.beginTransaction();
+            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.replace(R.id.mainFrame, new CalculatorFragment());
+            trans.addToBackStack(null);
+            trans.commit();
         } else if (id == R.id.nav_event) {
-
+            FragmentTransaction trans = fm.beginTransaction();
+            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.replace(R.id.mainFrame, new EventFragment());
+            trans.addToBackStack(null);
+            trans.commit();
         } else if (id == R.id.nav_nutrition) {
-
+            FragmentTransaction trans = fm.beginTransaction();
+            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.replace(R.id.mainFrame, new NutritionFragment());
+            trans.addToBackStack(null);
+            trans.commit();
         } else if (id == R.id.nav_location) {
-
+            FragmentTransaction trans = fm.beginTransaction();
+            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.replace(R.id.mainFrame, new LocationFragment());
+            trans.addToBackStack(null);
+            trans.commit();
         } else if (id == R.id.nav_contact) {
-
+            FragmentTransaction trans = fm.beginTransaction();
+            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.replace(R.id.mainFrame, new ContactFragment());
+            trans.addToBackStack(null);
+            trans.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
