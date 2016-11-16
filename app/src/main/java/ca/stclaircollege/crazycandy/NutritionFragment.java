@@ -7,6 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -60,11 +68,64 @@ public class NutritionFragment extends Fragment {
         }
     }
 
+    TextView CaloriesTetView;
+    TextView SugarTextView;
+    ListView list;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nutrition, container, false);
+        View view = inflater.inflate(R.layout.fragment_nutrition, container, false);
+
+        CaloriesTetView = (TextView) view.findViewById(R.id.calories);
+        SugarTextView = (TextView) view.findViewById(R.id.sugar);
+        list = (ListView) view.findViewById(R.id.candyList);
+
+        ArrayList<Nutrition> dataTypeList = new ArrayList<Nutrition>();
+        //dataTypeList.add(new Cast("", "", ""));
+
+        dataTypeList.add(new Nutrition("Candy 1", "2 Calories", "3g Sugar"));
+        dataTypeList.add(new Nutrition("Candy 2", "1 Calories", "4g Sugar"));
+        dataTypeList.add(new Nutrition("Candy 3", "44 Calories", "5g Sugar"));
+        dataTypeList.add(new Nutrition("Candy 4", "44 Calories", "5g Sugar"));
+        dataTypeList.add(new Nutrition("Candy 5", "44 Calories", "5g Sugar"));
+        dataTypeList.add(new Nutrition("Candy 6", "44 Calories", "5g Sugar"));
+        dataTypeList.add(new Nutrition("Candy 7", "44 Calories", "5g Sugar"));
+
+        CustomAdapter adapter = new CustomAdapter(getContext(), dataTypeList);
+        //ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, dataTypeList);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Nutrition item = (Nutrition) list.getItemAtPosition(position);
+                CaloriesTetView.setText(item.getCalories());
+                SugarTextView.setText(item.getSugar());
+            }
+        });
+        list.setAdapter(adapter);
+
+        return view;
+    }
+
+    public class CustomAdapter extends ArrayAdapter<Nutrition> {
+
+        public CustomAdapter(Context context, ArrayList<Nutrition> items) {
+            super(context, 0, items);
+        }
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            Nutrition item = getItem(position);
+
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.nutrition_view, parent, false);
+            }
+            TextView candyName = (TextView) convertView.findViewById(R.id.CandyName);
+            candyName.setText(item.getItemname());
+
+
+            return convertView;
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
