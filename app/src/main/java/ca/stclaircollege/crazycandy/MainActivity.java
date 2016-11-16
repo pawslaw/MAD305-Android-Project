@@ -96,37 +96,37 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_candyShow) {
             FragmentTransaction trans = fm.beginTransaction();
-            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
             trans.replace(R.id.mainFrame, new ShowFragment());
             trans.addToBackStack(null);
             trans.commit();
         } else if (id == R.id.nav_calculator) {
             FragmentTransaction trans = fm.beginTransaction();
-            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
             trans.replace(R.id.mainFrame, new CalculatorFragment());
             trans.addToBackStack(null);
             trans.commit();
         } else if (id == R.id.nav_event) {
             FragmentTransaction trans = fm.beginTransaction();
-            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
             trans.replace(R.id.mainFrame, new EventFragment());
             trans.addToBackStack(null);
             trans.commit();
         } else if (id == R.id.nav_nutrition) {
             FragmentTransaction trans = fm.beginTransaction();
-            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
             trans.replace(R.id.mainFrame, new NutritionFragment());
             trans.addToBackStack(null);
             trans.commit();
         } else if (id == R.id.nav_location) {
             FragmentTransaction trans = fm.beginTransaction();
-            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
             trans.replace(R.id.mainFrame, new LocationFragment());
             trans.addToBackStack(null);
             trans.commit();
         } else if (id == R.id.nav_contact) {
             FragmentTransaction trans = fm.beginTransaction();
-            //trans.setCustomAnimations(R.anim.enter_bottom, R.anim.exit_top);
+            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
             trans.replace(R.id.mainFrame, new ContactFragment());
             trans.addToBackStack(null);
             trans.commit();
