@@ -3,12 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ca.stclaircollege.crazycandy.ContactFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello from contact Fragmnet!" />
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/contact"
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contactButton"
+        android:id="@+id/contact_button"
+        android:width="150dp"
+        android:height="100dp"
+        android:padding="20dp"
+        android:layout_margin="50dp"/>
 
 </LinearLayout>
