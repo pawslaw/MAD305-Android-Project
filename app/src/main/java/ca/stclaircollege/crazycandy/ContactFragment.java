@@ -1,12 +1,16 @@
 package ca.stclaircollege.crazycandy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -26,6 +30,8 @@ public class ContactFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    String name = "Crazy Candy";
+    String email = "megan.caza@gmail.com";
 
     private OnFragmentInteractionListener mListener;
 
@@ -67,7 +73,20 @@ public class ContactFragment extends Fragment {
         Button button = (Button) view.findViewById(R.id.contact_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                
+                String[] emailaddresses = {email};
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL, emailaddresses);
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Question for Crazy Candy");
+                intent.putExtra(Intent.EXTRA_TEXT, "Hello Crazy Candy, I had some questions about ...");
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+                else{
+                    Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content),
+                            "No installed software to complete the task", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                }
             }
         });
 
