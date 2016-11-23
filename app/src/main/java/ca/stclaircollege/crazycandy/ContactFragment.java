@@ -90,6 +90,21 @@ public class ContactFragment extends Fragment {
             }
         });
 
+        Button mapButton = (Button) view.findViewById(R.id.map_button);
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Uri geoLocation = Uri.parse("geo:0,0?q=34.2032076,-118.33679(Crazy Candy Store)");
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(geoLocation);
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "No installed software to complete the task.", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                }
+            }
+        });
+
 
 
         return view;
