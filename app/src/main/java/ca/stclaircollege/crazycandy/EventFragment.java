@@ -1,12 +1,18 @@
 package ca.stclaircollege.crazycandy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.Calendar;
 
 
 /**
@@ -26,6 +32,9 @@ public class EventFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Button addToCalendar = null;
+    private Button fbEvent = null;
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,7 +73,43 @@ public class EventFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event, container, false);
+        View view = inflater.inflate(R.layout.fragment_event, container, false);
+
+        //Create Buttons
+        addToCalendar = (Button) view.findViewById(R.id.addToCalendar);
+        fbEvent = (Button) view.findViewById(R.id.fbEvent);
+
+        //Event Handlers
+        addToCalendar.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                        Calendar beginCal = Calendar.getInstance();
+                        beginCal.set(2016, 12, 15, 18, 0);
+                        long startTime = beginCal.getTimeInMillis();
+
+                        Calendar endCal = Calendar.getInstance();
+                        endCal.set(2016, 12, 15, 22, 0);
+                        long endTime = endCal.getTimeInMillis();
+                        Intent intent = new Intent(Intent.ACTION_INSERT)
+                                .setData(CalendarContract.Events.CONTENT_URI)
+                                .putExtra(CalendarContract.Events.TITLE, "Crazy Candy Grand Opening!")
+                                .putExtra(CalendarContract.Events.EVENT_LOCATION, "Crazy Candy Shop")
+                                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTime)
+                                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime);
+                        if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                            startActivity(intent);
+                        }
+            }
+
+        });
+
+        fbEvent.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+
+            }
+
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
