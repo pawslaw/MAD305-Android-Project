@@ -41,6 +41,7 @@ public class CalculatorFragment extends Fragment {
     //Doubles for calculating
     private double total;
     private double tax = 1.13;
+    private double subTotal;
 
     private OnFragmentInteractionListener mListener;
 
@@ -92,32 +93,36 @@ public class CalculatorFragment extends Fragment {
         //Button Handlers
         fiveCent.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                total = (total + .05) * tax;
-                String s = String.format("%.2f", total);
+                total += .05;
+                subTotal = total * tax;
+                String s = String.format("%.2f", subTotal);
                 txtCalc.setText(s);
             }
 
         });
         tenCent.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                total = (total + .10) * tax;
-                String s = String.format("%.2f", total);
+                total += .10;
+                subTotal = total * tax;
+                String s = String.format("%.2f", subTotal);
                 txtCalc.setText(s);
             }
 
         });
         twentyFiveCent.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                total = (total + .25) * tax;
-                String s = String.format("%.2f", total);
+                total += .25;
+                subTotal = total * tax;
+                String s = String.format("%.2f", subTotal);
                 txtCalc.setText(s);
             }
 
         });
         dollar.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                total = (total + 1.00) * tax;
-                String s = String.format("%.2f", total);
+                total += 1.00;
+                subTotal = total * tax;
+                String s = String.format("%.2f", subTotal);
                 txtCalc.setText(s);
             }
 
