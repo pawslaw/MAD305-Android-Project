@@ -1,14 +1,88 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ca.stclaircollege.crazycandy.CalculatorFragment"
     android:orientation="vertical">
-
+    <TableRow>
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/txtCalc"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello from Calculator Fragment!" />
+        android:layout_height="116dp"
+        android:gravity="right"
+        android:inputType="none"
+        android:singleLine="true"
+        android:text="0"
+        android:textSize="56sp"
+        android:textStyle="normal"
+        android:typeface="normal"
+        android:padding="25px"
+        android:layout_weight="1"/>
 
-</LinearLayout>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/fiveCent"
+            android:layout_width="fill_parent"
+            android:layout_height="400px"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="0px"
+            android:text="5&#x00A2;"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:typeface="serif"
+            />
+        <Button
+            android:id="@+id/tenCent"
+            android:layout_width="fill_parent"
+            android:layout_height="400px"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="0px"
+            android:text="10&#x00A2;"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/twentyFiveCent"
+            android:layout_width="fill_parent"
+            android:layout_height="400px"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="0px"
+            android:text="25&#x00A2;"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+        <Button
+            android:id="@+id/dollar"
+            android:layout_width="fill_parent"
+            android:layout_height="400px"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="0px"
+            android:text="1$"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </TableRow>
+    <TableLayout>
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="0px"
+            android:text="RESET"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </TableLayout>
+
+</TableLayout>

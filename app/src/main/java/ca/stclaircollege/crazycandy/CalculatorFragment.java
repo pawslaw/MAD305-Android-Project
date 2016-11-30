@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -23,9 +26,22 @@ public class CalculatorFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    //Buttons + Text
+    private TextView txtCalc = null;
+    private Button fiveCent = null;
+    private Button tenCent = null;
+    private Button twentyFiveCent = null;
+    private Button dollar = null;
+    private Button reset = null;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    //Doubles for calculating
+    private double total;
+    private double tax = 1.13;
+    private double subTotal;
 
     private OnFragmentInteractionListener mListener;
 
@@ -63,8 +79,63 @@ public class CalculatorFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calculator, container, false);
+        // Seperate the View
+        View view =  inflater.inflate(R.layout.fragment_calculator, container, false);
+
+        //Create Buttons
+        txtCalc = (TextView) view.findViewById(R.id.txtCalc);
+        fiveCent = (Button) view.findViewById(R.id.fiveCent);
+        tenCent = (Button) view.findViewById(R.id.tenCent);
+        twentyFiveCent = (Button) view.findViewById(R.id.twentyFiveCent);
+        dollar = (Button) view.findViewById(R.id.dollar);
+        reset = (Button) view.findViewById(R.id.reset);
+
+        //Button Handlers
+        fiveCent.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                total += .05;
+                subTotal = total * tax;
+                String s = String.format("%.2f", subTotal);
+                txtCalc.setText(s);
+            }
+
+        });
+        tenCent.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                total += .10;
+                subTotal = total * tax;
+                String s = String.format("%.2f", subTotal);
+                txtCalc.setText(s);
+            }
+
+        });
+        twentyFiveCent.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                total += .25;
+                subTotal = total * tax;
+                String s = String.format("%.2f", subTotal);
+                txtCalc.setText(s);
+            }
+
+        });
+        dollar.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                total += 1.00;
+                subTotal = total * tax;
+                String s = String.format("%.2f", subTotal);
+                txtCalc.setText(s);
+            }
+
+        });
+        reset.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                total = 0.00;
+                String s = String.format("%.2f", total);
+                txtCalc.setText(s);
+            }
+
+        });
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
