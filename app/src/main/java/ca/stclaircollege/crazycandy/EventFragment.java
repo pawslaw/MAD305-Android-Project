@@ -104,7 +104,10 @@ public class EventFragment extends Fragment {
 
         fbEvent.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-
+                String url = "https://www.facebook.com/events/390731027925234/";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
             }
 
         });
