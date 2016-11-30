@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity
         EventFragment.OnFragmentInteractionListener,
         LocationFragment.OnFragmentInteractionListener,
         NutritionFragment.OnFragmentInteractionListener,
-        ShowFragment.OnFragmentInteractionListener {
+        ShowFragment.OnFragmentInteractionListener,
+        CandyFragment.OnFragmentInteractionListener {
 
     FragmentManager fm = getSupportFragmentManager();
 
