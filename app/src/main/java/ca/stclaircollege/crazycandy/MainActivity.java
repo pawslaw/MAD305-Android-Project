@@ -119,17 +119,44 @@ public class MainActivity extends AppCompatActivity
             trans.addToBackStack(null);
             trans.commit();
         } else if (id == R.id.nav_location) {
-            FragmentTransaction trans = fm.beginTransaction();
-            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
-            trans.replace(R.id.mainFrame, new LocationFragment());
-            trans.addToBackStack(null);
-            trans.commit();
+//            FragmentTransaction trans = fm.beginTransaction();
+//            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
+//            trans.replace(R.id.mainFrame, new LocationFragment());
+//            trans.addToBackStack(null);
+//            trans.commit();
+            Uri geoLocation = Uri.parse("geo:0,0?q=34.2032076,-118.33679(Crazy Candy Store)");
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(geoLocation);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            } else {
+                Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "No installed software to complete the task.", Snackbar.LENGTH_SHORT);
+                snackbar.show();
+            }
         } else if (id == R.id.nav_contact) {
-            FragmentTransaction trans = fm.beginTransaction();
-            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
-            trans.replace(R.id.mainFrame, new ContactFragment());
-            trans.addToBackStack(null);
-            trans.commit();
+//            FragmentTransaction trans = fm.beginTransaction();
+//            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
+//            trans.replace(R.id.mainFrame, new ContactFragment());
+//            trans.addToBackStack(null);
+//            trans.commit();
+
+            String name = "Crazy Candy";
+            String email = "megan.caza@gmail.com";
+
+            String[] emailaddresses = {email};
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:"));
+            intent.putExtra(Intent.EXTRA_EMAIL, emailaddresses);
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Question for Crazy Candy");
+            intent.putExtra(Intent.EXTRA_TEXT, "Hello Crazy Candy, I had some questions about ...");
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+            else{
+                Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
+                        "No installed software to complete the task", Snackbar.LENGTH_SHORT);
+                snackbar.show();
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
