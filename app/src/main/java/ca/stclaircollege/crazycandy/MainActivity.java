@@ -3,11 +3,9 @@ package ca.stclaircollege.crazycandy;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,7 +22,10 @@ public class MainActivity extends AppCompatActivity
         EventFragment.OnFragmentInteractionListener,
         LocationFragment.OnFragmentInteractionListener,
         NutritionFragment.OnFragmentInteractionListener,
-        ShowFragment.OnFragmentInteractionListener {
+        ShowFragment.OnFragmentInteractionListener,
+        CandyFragment.OnFragmentInteractionListener,
+        CandyShowFragment.OnFragmentInteractionListener,
+        CandyShowContentFragment.OnFragmentInteractionListener {
 
     FragmentManager fm = getSupportFragmentManager();
 
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_candyShow) {
             FragmentTransaction trans = fm.beginTransaction();
             trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
-            trans.replace(R.id.mainFrame, new ShowFragment());
+            trans.replace(R.id.mainFrame, new CandyShowFragment());
             trans.addToBackStack(null);
             trans.commit();
         } else if (id == R.id.nav_calculator) {
