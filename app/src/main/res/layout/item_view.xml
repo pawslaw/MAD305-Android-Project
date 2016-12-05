@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="4dp"
+    android:paddingRight="4dp"
+    android:baselineAligned="false"
+    android:clickable="false"
+    android:minHeight="40dp"
+    android:gravity="center_vertical"
+    android:paddingLeft="4dp"
+    android:paddingBottom="4dp"
+    android:divider="@color/accent_material_light"
+    android:dividerPadding="4dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ActorName"
+        android:text="%ACTORNAME%"
+        android:textStyle="bold"
+        android:textSize="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" as "
+        android:id="@+id/textView4"
+        android:textSize="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/CharacterName"
+        android:text="%CHARACTERNAME%"
+        android:textStyle="bold"
+        android:textSize="16dp" />
+</LinearLayout>

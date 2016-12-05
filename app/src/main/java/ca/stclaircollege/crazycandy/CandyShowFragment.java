@@ -124,40 +124,40 @@ public class CandyShowFragment extends Fragment {
         public Fragment getItem(int position)
         {
             Candy candy = new Candy();
-            candy.name = "OOPS";
-            candy.price = "OOPS";
-            candy.description = "OOPS";
+            candy.setCandyName("OOPS");
+            candy.setCandyPrice("OOPS");
+            candy.setCandyDescription("OOPS");
 
             switch(position){
                 case 0:
-                    candy.name = "Generic Candy Name 1";
-                    candy.price = "$11.99";
-                    candy.description = "A really generic candy that is sold at a competitive price";
+                    candy.setCandyName("Generic Candy Name 1");
+                    candy.setCandyPrice("$10.50 CAD");
+                    candy.setCandyDescription("A really generic candy that is sold at a competitive price");
                     break;
                 case 1:
-                    candy.name = "Generic Candy Name 2";
-                    candy.price = "$0.99";
-                    candy.description = "A really generic candy that is sold at a competitive price";
+                    candy.setCandyName("Generic Candy Name 1");
+                    candy.setCandyPrice("$1.50 CAD");
+                    candy.setCandyDescription("A really generic candy that is sold at a competitive price");
                     break;
                 case 2:
-                    candy.name = "Generic Candy Name 3";
-                    candy.price = "$2.49";
-                    candy.description = "A really generic candy that is sold at a competitive price";
+                    candy.setCandyName("Generic Candy Name 1");
+                    candy.setCandyPrice("$3.99 CAD");
+                    candy.setCandyDescription("A really generic candy that is sold at a competitive price");
                     break;
                 case 3:
-                    candy.name = "Generic Candy Name 4";
-                    candy.price = "$1.00";
-                    candy.description = "A really generic candy that is sold at a competitive price";
+                    candy.setCandyName("Generic Candy Name 1");
+                    candy.setCandyPrice("$6.35 CAD");
+                    candy.setCandyDescription("A really generic candy that is sold at a competitive price");
                     break;
                 case 4:
-                    candy.name = "Generic Candy Name 5";
-                    candy.price = "$6.99";
-                    candy.description = "A really generic candy that is sold at a competitive price";
+                    candy.setCandyName("Generic Candy Name 1");
+                    candy.setCandyPrice("$0.10 CAD");
+                    candy.setCandyDescription("A really generic candy that is sold at a competitive price");
                     break;
                 default:
                     break;
             }
-            return CandyShowContentFragment.newInstance(candy.name, candy.price, candy.description);
+            return CandyShowContentFragment.newInstance(candy.getCandyName(), candy.getCandyPrice(), candy.getCandyDescription());
 
 //            switch(position){
 //                case 0:
@@ -170,11 +170,5 @@ public class CandyShowFragment extends Fragment {
         public int getCount(){
             return 5;
         }
-    }
-
-    public class Candy {
-        public String name;
-        public String price;
-        public String description;
     }
 }

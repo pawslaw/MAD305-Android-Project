@@ -5,10 +5,46 @@
     tools:context="ca.stclaircollege.crazycandy.NutritionFragment"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Nutritional Information"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20dp"
+        android:layout_marginBottom="8dp" />
+
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello from nutrition fragment!" />
+        android:id="@+id/candylist"
+        android:layout_weight="2"
+        android:divider="@color/colorPrimary"
+        android:dividerHeight="1dp"
+        android:layout_marginBottom="2dp">
+
+    </ListView>
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:minHeight="1dp"
+        android:padding="4dp"
+        android:layout_weight="0" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/candylistdescription"
+            android:textSize="18sp"
+            android:padding="2dp"/>
+    </ScrollView>
 
 </LinearLayout>

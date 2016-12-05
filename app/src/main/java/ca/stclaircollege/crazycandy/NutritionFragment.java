@@ -7,6 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -60,11 +66,58 @@ public class NutritionFragment extends Fragment {
         }
     }
 
+    TextView CastDescriptionTextView;
+    ListView list;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nutrition, container, false);
+        View view = inflater.inflate(R.layout.fragment_nutrition, container, false);
+
+        CastDescriptionTextView = (TextView) view.findViewById(R.id.candylistdescription);
+        list = (ListView) view.findViewById(R.id.candylist);
+
+        ArrayList<Candy> dataTypeList = new ArrayList<Candy>();
+        //dataTypeList.add(new Candy("", "", ""));
+
+        for (int i = 0; i < 100; i++) {
+            dataTypeList.add(new Candy("Generic Candy " + i, "Generic Candy 1 Generic Description", "$1.00", 100.00f, 25.00f));
+        }
+
+
+        CustomAdapter adapter1 = new CustomAdapter(getContext(), dataTypeList);
+        //ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, dataTypeList);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Candy candy = (Candy) list.getItemAtPosition(position);
+                CastDescriptionTextView.setText(candy.getCandyDescription());
+            }
+        });
+        list.setAdapter(adapter1);
+        return view;
+    }
+
+    public class CustomAdapter extends ArrayAdapter<Candy> {
+
+        public CustomAdapter(Context context, ArrayList<Candy> items) {
+            super(context, 0, items);
+        }
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            Candy candy = getItem(position);
+
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_view, parent, false);
+            }
+            TextView actorName = (TextView) convertView.findViewById(R.id.ActorName);
+            actorName.setText(candy.getCandyName());
+            TextView characterName = (TextView) convertView.findViewById(R.id.CharacterName);
+            characterName.setText(candy.getCandyPrice());
+
+            return convertView;
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
