@@ -7,8 +7,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_settings">Settings</string>
 
-    <string name="nav_drawer_appname">Crazy Candy</string>
-    <string name="nav_drawer_email">insert@email.here</string>
+    <string name="nav_drawer_appname">Launch Party Buddy</string>
 
     <string name="contactButton">Test String</string>
     <string name="mapButton">Navigate To Us</string>
