@@ -5,9 +5,10 @@
     tools:context="ca.stclaircollege.crazycandy.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="500px"
+        android:src="@drawable/home_image"
+        android:layout_margin="10dp"/>
 
 </FrameLayout>
