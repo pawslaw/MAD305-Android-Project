@@ -9,8 +9,10 @@
 
     <string name="nav_drawer_appname">Launch Party Buddy</string>
 
-    <string name="contactButton">Test String</string>
-    <string name="mapButton">Navigate To Us</string>
+    <string name="home_title">We Carry:</string>
+    <string name="home_bottom">Grand Opening\nDec 15th</string>
+
+    <string name="event_title">Crazy Candy\nGrand Opening!</string>
 
     <!-- Strings related to Settings -->
 
