@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity
         CalculatorFragment.OnFragmentInteractionListener,
         EventFragment.OnFragmentInteractionListener,
         NutritionFragment.OnFragmentInteractionListener,
-        ShowFragment.OnFragmentInteractionListener {
+        ShowFragment.OnFragmentInteractionListener,
+        HomeFragment.OnFragmentInteractionListener {
 
     FragmentManager fm = getSupportFragmentManager();
 
@@ -50,6 +51,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        FragmentTransaction trans = fm.beginTransaction();
+        trans.replace(R.id.mainFrame, new HomeFragment());
+        trans.addToBackStack(null);
+        trans.commit();
     }
 
     @Override
