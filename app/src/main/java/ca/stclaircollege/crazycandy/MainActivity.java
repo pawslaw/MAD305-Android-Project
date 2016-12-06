@@ -20,11 +20,10 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         CalculatorFragment.OnFragmentInteractionListener,
-        ContactFragment.OnFragmentInteractionListener,
         EventFragment.OnFragmentInteractionListener,
-        LocationFragment.OnFragmentInteractionListener,
         NutritionFragment.OnFragmentInteractionListener,
         ShowFragment.OnFragmentInteractionListener,
+        HomeFragment.OnFragmentInteractionListener,
         CandyFragment.OnFragmentInteractionListener,
         CandyShowFragment.OnFragmentInteractionListener,
         CandyShowContentFragment.OnFragmentInteractionListener {
@@ -55,6 +54,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        FragmentTransaction trans = fm.beginTransaction();
+        trans.replace(R.id.mainFrame, new HomeFragment());
+        trans.addToBackStack(null);
+        trans.commit();
     }
 
     @Override
