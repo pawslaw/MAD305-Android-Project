@@ -128,36 +128,41 @@ public class CandyShowFragment extends Fragment {
             candy.price = "OOPS";
             candy.description = "OOPS";
 
-            switch(position){
-                case 0:
-                    candy.name = "Generic Candy Name 1";
-                    candy.price = "$11.99";
-                    candy.description = "A really generic candy that is sold at a competitive price";
-                    break;
-                case 1:
-                    candy.name = "Generic Candy Name 2";
-                    candy.price = "$0.99";
-                    candy.description = "A really generic candy that is sold at a competitive price";
-                    break;
-                case 2:
-                    candy.name = "Generic Candy Name 3";
-                    candy.price = "$2.49";
-                    candy.description = "A really generic candy that is sold at a competitive price";
-                    break;
-                case 3:
-                    candy.name = "Generic Candy Name 4";
-                    candy.price = "$1.00";
-                    candy.description = "A really generic candy that is sold at a competitive price";
-                    break;
-                case 4:
-                    candy.name = "Generic Candy Name 5";
-                    candy.price = "$6.99";
-                    candy.description = "A really generic candy that is sold at a competitive price";
-                    break;
-                default:
-                    break;
-            }
-            return CandyShowContentFragment.newInstance(candy.name, candy.price, candy.description);
+//            switch(position){
+//                case 0:
+//                    candy.name = "Generic Candy Name 1";
+//                    candy.price = "$11.99";
+//                    candy.description = "A really generic candy that is sold at a competitive price";
+//                    break;
+//                case 1:
+//                    candy.name = "Generic Candy Name 2";
+//                    candy.price = "$0.99";
+//                    candy.description = "A really generic candy that is sold at a competitive price";
+//                    break;
+//                case 2:
+//                    candy.name = "Generic Candy Name 3";
+//                    candy.price = "$2.49";
+//                    candy.description = "A really generic candy that is sold at a competitive price";
+//                    break;
+//                case 3:
+//                    candy.name = "Generic Candy Name 4";
+//                    candy.price = "$1.00";
+//                    candy.description = "A really generic candy that is sold at a competitive price";
+//                    break;
+//                case 4:
+//                    candy.name = "Generic Candy Name 5";
+//                    candy.price = "$6.99";
+//                    candy.description = "A really generic candy that is sold at a competitive price";
+//                    break;
+//                default:
+//                    break;
+//            }
+
+            candy.name = MainActivity.candy.get(position).getName();
+            candy.price = MainActivity.candy.get(position).getPrice();
+            candy.description = MainActivity.candy.get(position).getDescription();
+            candy.imageFilename = MainActivity.candy.get(position).getImageFilename();
+            return CandyShowContentFragment.newInstance(candy.name, candy.price, candy.description, candy.imageFilename);
 
 //            switch(position){
 //                case 0:
@@ -168,13 +173,7 @@ public class CandyShowFragment extends Fragment {
 //            }
         }
         public int getCount(){
-            return 5;
+            return MainActivity.candy.size();
         }
-    }
-
-    public class Candy {
-        public String name;
-        public String price;
-        public String description;
     }
 }

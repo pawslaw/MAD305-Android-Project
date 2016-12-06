@@ -1,13 +1,19 @@
 package ca.stclaircollege.crazycandy;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.logging.Logger;
 
 
 /**
@@ -24,11 +30,13 @@ public class CandyShowContentFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String ARG_PARAM3 = "param3";
+    private static final String ARG_PARAM4 = "param4";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private String mParam3;
+    private String mParam4;
 
     private OnFragmentInteractionListener mListener;
 
@@ -45,12 +53,13 @@ public class CandyShowContentFragment extends Fragment {
      * @return A new instance of fragment CandyShowContentFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CandyShowContentFragment newInstance(String param1, String param2, String param3) {
+    public static CandyShowContentFragment newInstance(String param1, String param2, String param3, String param4) {
         CandyShowContentFragment fragment = new CandyShowContentFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         args.putString(ARG_PARAM3, param3);
+        args.putString(ARG_PARAM4, param4);
         //args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
@@ -63,6 +72,7 @@ public class CandyShowContentFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
             mParam3 = getArguments().getString(ARG_PARAM3);
+            mParam4 = getArguments().getString(ARG_PARAM4);
         }
     }
 
@@ -80,6 +90,15 @@ public class CandyShowContentFragment extends Fragment {
         }
         if(mParam3 != null){
             ((TextView) view.findViewById(R.id.description)).setText(mParam3);
+        }
+        if(mParam4 != null){
+            //((TextView) view.findViewById(R.id.description)).setText(mParam4);
+            ImageView candyImage = (ImageView) view.findViewById(R.id.candyImage);
+
+
+
+            //candyImage.setImageResource(getResources().getIdentifier(mParam4, "drawable", "ca.stclaircollege.crazycandy"));
+            candyImage.setBackgroundResource(getResources().getIdentifier(mParam4, "drawable", "ca.stclaircollege.crazycandy"));
         }
 //        Button calendarButton = (Button) view.findViewById(R.id.calendarButton);
 //        calendarButton.setOnClickListener(new View.OnClickListener() {
