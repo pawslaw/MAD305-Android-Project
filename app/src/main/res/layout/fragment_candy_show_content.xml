@@ -21,7 +21,6 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:minHeight="140dp"
-        android:background="@drawable/placeholder"
         android:layout_gravity="center_horizontal"
         android:minWidth="140dp" />
 
