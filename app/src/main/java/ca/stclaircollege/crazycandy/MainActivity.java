@@ -1,8 +1,10 @@
 package ca.stclaircollege.crazycandy;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -18,11 +20,10 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         CalculatorFragment.OnFragmentInteractionListener,
-        ContactFragment.OnFragmentInteractionListener,
         EventFragment.OnFragmentInteractionListener,
-        LocationFragment.OnFragmentInteractionListener,
         NutritionFragment.OnFragmentInteractionListener,
         ShowFragment.OnFragmentInteractionListener,
+        HomeFragment.OnFragmentInteractionListener,
         CandyFragment.OnFragmentInteractionListener,
         CandyShowFragment.OnFragmentInteractionListener,
         CandyShowContentFragment.OnFragmentInteractionListener {
@@ -53,6 +54,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        FragmentTransaction trans = fm.beginTransaction();
+        trans.replace(R.id.mainFrame, new HomeFragment());
+        trans.addToBackStack(null);
+        trans.commit();
     }
 
     @Override
@@ -141,6 +147,10 @@ public class MainActivity extends AppCompatActivity
 //            trans.addToBackStack(null);
 //            trans.commit();
 
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(MainActivity.this);
+            String full_name=settings.getString("full_name", "");
+
             String name = "Crazy Candy";
             String email = "megan.caza@gmail.com";
 
@@ -149,7 +159,11 @@ public class MainActivity extends AppCompatActivity
             intent.setData(Uri.parse("mailto:"));
             intent.putExtra(Intent.EXTRA_EMAIL, emailaddresses);
             intent.putExtra(Intent.EXTRA_SUBJECT, "Question for Crazy Candy");
-            intent.putExtra(Intent.EXTRA_TEXT, "Hello Crazy Candy, I had some questions about ...");
+            if (full_name.isEmpty()) {
+                intent.putExtra(Intent.EXTRA_TEXT, "Hello Crazy Candy, I had some questions about ...");
+            } else {
+                intent.putExtra(Intent.EXTRA_TEXT, "Hello Crazy Candy, I'm " + full_name + ", and I had some questions about ...");
+            }
             if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivity(intent);
             }

@@ -75,14 +75,15 @@
         <Button
             android:id="@+id/reset"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="200px"
             android:layout_weight="1"
             android:gravity="center"
             android:padding="0px"
             android:text="RESET"
             android:textSize="35sp"
             android:textStyle="bold"
-            android:typeface="serif" />
+            android:typeface="serif"
+            android:layout_marginTop="15pt" />
     </TableLayout>
 
 </TableLayout>
