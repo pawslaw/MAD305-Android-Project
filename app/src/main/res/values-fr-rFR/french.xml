@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+
+    <string name="action_settings">Paramètres</string>
+    <string name="title_activity_settings">Paramètres</string>
+
+    <string name="nav_drawer_appname">Lancement Party Buddy</string>
+
+    <string name="home_title">Nous transportons:</string>
+    <string name="home_bottom">Grandiose Ouverture\nDéc 15</string>
+
+    <string name="event_title">Crazy Candy\nGrandiose Ouverture!</string>
+</resources>

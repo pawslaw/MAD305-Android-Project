@@ -11,11 +11,12 @@
         android:layout_height="200dp"
         android:gravity="center"
         android:inputType="none"
-        android:textSize="56sp"
-        android:textStyle="normal"
-        android:typeface="normal"
+        android:textSize="20pt"
+        android:textAlignment="center"
+        android:textStyle="bold"
         android:padding="25px"
-        android:text="Crazy Candy Grand Opening!" />
+        android:text="Crazy Candy\nGrand Opening!"
+        android:textColor="@color/title"/>
 
     <!--<ImageView-->
         <!--android:layout_width="match_parent"-->
