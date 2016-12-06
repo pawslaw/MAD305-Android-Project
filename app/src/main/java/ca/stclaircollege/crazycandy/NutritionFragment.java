@@ -11,6 +11,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -82,25 +83,17 @@ public class NutritionFragment extends Fragment {
         SugarTextView = (TextView) view.findViewById(R.id.sugar);
         list = (ListView) view.findViewById(R.id.candyList);
 
-        ArrayList<Nutrition> dataTypeList = new ArrayList<Nutrition>();
+
+        ArrayList<Candy> candyList = Candy.testCandy();
         //dataTypeList.add(new Cast("", "", ""));
-
-        dataTypeList.add(new Nutrition("Candy 1", "2 Calories", "3g Sugar"));
-        dataTypeList.add(new Nutrition("Candy 2", "1 Calories", "4g Sugar"));
-        dataTypeList.add(new Nutrition("Candy 3", "44 Calories", "5g Sugar"));
-        dataTypeList.add(new Nutrition("Candy 4", "44 Calories", "5g Sugar"));
-        dataTypeList.add(new Nutrition("Candy 5", "44 Calories", "5g Sugar"));
-        dataTypeList.add(new Nutrition("Candy 6", "44 Calories", "5g Sugar"));
-        dataTypeList.add(new Nutrition("Candy 7", "44 Calories", "5g Sugar"));
-
-        CustomAdapter adapter = new CustomAdapter(getContext(), dataTypeList);
+        CustomAdapter adapter = new CustomAdapter(getContext(), candyList);
         //ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, dataTypeList);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Nutrition item = (Nutrition) list.getItemAtPosition(position);
-                CaloriesTetView.setText(item.getCalories());
-                SugarTextView.setText(item.getSugar());
+                Candy item = (Candy) list.getItemAtPosition(position);
+                CaloriesTetView.setText("Calorie Content: " + item.getCalories());
+                SugarTextView.setText("Sugar Content: " + item.getSugar());
             }
         });
         list.setAdapter(adapter);
@@ -108,20 +101,24 @@ public class NutritionFragment extends Fragment {
         return view;
     }
 
-    public class CustomAdapter extends ArrayAdapter<Nutrition> {
+    public class CustomAdapter extends ArrayAdapter<Candy> {
 
-        public CustomAdapter(Context context, ArrayList<Nutrition> items) {
+        public CustomAdapter(Context context, ArrayList<Candy> items) {
             super(context, 0, items);
         }
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            Nutrition item = getItem(position);
+            Candy item = getItem(position);
 
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.nutrition_view, parent, false);
             }
             TextView candyName = (TextView) convertView.findViewById(R.id.CandyName);
-            candyName.setText(item.getItemname());
+
+            ImageView image = (ImageView) convertView.findViewById(R.id.nutritionImage);
+
+            image.setBackgroundResource(getResources().getIdentifier(item.getImageFilename(), "drawable", "ca.stclaircollege.crazycandy"));
+            candyName.setText(item.getName());
 
 
             return convertView;

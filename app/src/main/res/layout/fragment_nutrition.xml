@@ -49,15 +49,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/calories"
-                android:textSize="18sp"
-                android:padding="2dp"/>
+                android:textSize="24sp"
+                android:padding="2dp"
+                android:textStyle="normal|bold"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:gravity="center_horizontal" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/sugar"
-                android:textSize="18sp"
-                android:padding="2dp" />
+                android:textSize="24sp"
+                android:padding="2dp"
+                android:textStyle="normal|bold"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:gravity="center_horizontal" />
         </LinearLayout>
     </ScrollView>
 

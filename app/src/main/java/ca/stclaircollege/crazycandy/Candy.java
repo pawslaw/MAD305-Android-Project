@@ -46,6 +46,42 @@ public class Candy {
         candy.setImageFilename("nav_image");
         candyArray.add(candy);
 
+        candy = new Candy();
+        candy.setCalories("10");
+        candy.setName("Very Generic Candy");
+        candy.setDescription("Very Generic Description for a very generic candy.");
+        candy.setPrice("$1.00");
+        candy.setSugar("10g");
+        candy.setImageFilename("placeholder");
+        candyArray.add(candy);
+
+        candy = new Candy();
+        candy.setCalories("1");
+        candy.setName("Diet Candy");
+        candy.setDescription("Only 1 calorie.");
+        candy.setPrice("$5.00");
+        candy.setSugar("100g");
+        candy.setImageFilename("nav_image");
+        candyArray.add(candy);
+
+        candy = new Candy();
+        candy.setCalories("20");
+        candy.setName("\"I'm Running Out Of Name Ideas\"");
+        candy.setDescription("Bittersweet candy for all the times you couldn't come up with anything else");
+        candy.setPrice("$0.50");
+        candy.setSugar("5g");
+        candy.setImageFilename("nav_image");
+        candyArray.add(candy);
+
+        candy = new Candy();
+        candy.setCalories("You");
+        candy.setName("The Final Candy");
+        candy.setDescription("It comes.");
+        candy.setPrice("$0.00");
+        candy.setSugar("0g");
+        candy.setImageFilename("");
+        candyArray.add(candy);
+
         return candyArray;
     }
 
