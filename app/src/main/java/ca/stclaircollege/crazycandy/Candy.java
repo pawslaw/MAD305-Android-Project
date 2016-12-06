@@ -19,6 +19,7 @@ public class Candy {
 
         Candy candy;
 
+        // -------- Duplicate Below This
         candy = new Candy();
         candy.setCalories("101");
         candy.setName("Binary");
@@ -27,6 +28,7 @@ public class Candy {
         candy.setSugar("10.10g");
         candy.setImageFilename("home_image");
         candyArray.add(candy);
+        // -------- Duplicate above this
 
         candy = new Candy();
         candy.setCalories("33");
