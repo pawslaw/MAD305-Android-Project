@@ -1,13 +1,13 @@
 package ca.stclaircollege.crazycandy;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,16 +17,23 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         CalculatorFragment.OnFragmentInteractionListener,
-        ContactFragment.OnFragmentInteractionListener,
         EventFragment.OnFragmentInteractionListener,
-        LocationFragment.OnFragmentInteractionListener,
         NutritionFragment.OnFragmentInteractionListener,
-        ShowFragment.OnFragmentInteractionListener {
+        ShowFragment.OnFragmentInteractionListener,
+        HomeFragment.OnFragmentInteractionListener,
+        CandyFragment.OnFragmentInteractionListener,
+        CandyShowFragment.OnFragmentInteractionListener,
+        CandyShowContentFragment.OnFragmentInteractionListener {
 
     FragmentManager fm = getSupportFragmentManager();
+
+    public static ArrayList<Candy> candy = Candy.testCandy();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +42,17 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+        //candy = Candy.testCandy();
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -52,6 +62,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        FragmentTransaction trans = fm.beginTransaction();
+        trans.replace(R.id.mainFrame, new HomeFragment());
+        trans.addToBackStack(null);
+        trans.commit();
     }
 
     @Override
@@ -97,7 +112,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_candyShow) {
             FragmentTransaction trans = fm.beginTransaction();
             trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
-            trans.replace(R.id.mainFrame, new ShowFragment());
+            trans.replace(R.id.mainFrame, new CandyShowFragment());
             trans.addToBackStack(null);
             trans.commit();
         } else if (id == R.id.nav_calculator) {
@@ -119,17 +134,52 @@ public class MainActivity extends AppCompatActivity
             trans.addToBackStack(null);
             trans.commit();
         } else if (id == R.id.nav_location) {
-            FragmentTransaction trans = fm.beginTransaction();
-            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
-            trans.replace(R.id.mainFrame, new LocationFragment());
-            trans.addToBackStack(null);
-            trans.commit();
+//            FragmentTransaction trans = fm.beginTransaction();
+//            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
+//            trans.replace(R.id.mainFrame, new LocationFragment());
+//            trans.addToBackStack(null);
+//            trans.commit();
+            Uri geoLocation = Uri.parse("geo:0,0?q=34.2032076,-118.33679(Crazy Candy Store)");
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(geoLocation);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            } else {
+                Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "No installed software to complete the task.", Snackbar.LENGTH_SHORT);
+                snackbar.show();
+            }
         } else if (id == R.id.nav_contact) {
-            FragmentTransaction trans = fm.beginTransaction();
-            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
-            trans.replace(R.id.mainFrame, new ContactFragment());
-            trans.addToBackStack(null);
-            trans.commit();
+//            FragmentTransaction trans = fm.beginTransaction();
+//            trans.setCustomAnimations(R.anim.slide_from_left, R.anim.slide_to_right);
+//            trans.replace(R.id.mainFrame, new ContactFragment());
+//            trans.addToBackStack(null);
+//            trans.commit();
+
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(MainActivity.this);
+            String full_name=settings.getString("full_name", "");
+
+            String name = "Crazy Candy";
+            String email = "megan.caza@gmail.com";
+
+            String[] emailaddresses = {email};
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:"));
+            intent.putExtra(Intent.EXTRA_EMAIL, emailaddresses);
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Question for Crazy Candy");
+            if (full_name.isEmpty()) {
+                intent.putExtra(Intent.EXTRA_TEXT, "Hello Crazy Candy, I had some questions about ...");
+            } else {
+                intent.putExtra(Intent.EXTRA_TEXT, "Hello Crazy Candy, I'm " + full_name + ", and I had some questions about ...");
+            }
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+            else{
+                Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
+                        "No installed software to complete the task", Snackbar.LENGTH_SHORT);
+                snackbar.show();
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

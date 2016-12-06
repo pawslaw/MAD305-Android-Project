@@ -7,4 +7,10 @@
     <color name="navDrawerStart">#6A1B9A</color>
     <color name="navDrawerCenter">#512DA8</color>
     <color name="navDrawerEnd">#4A148C</color>
+    <color name="splashBackground">#FAFAFA</color>
+
+    <color name="title">#200844</color>
+    <color name="black">#000000</color>
+
+    <color name="white">#ffffff</color>
 </resources>

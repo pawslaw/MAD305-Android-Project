@@ -1,13 +1,50 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ca.stclaircollege.crazycandy.EventFragment">
+    tools:context="ca.stclaircollege.crazycandy.EventFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello from event fragment!" />
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:inputType="none"
+        android:textSize="20pt"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:padding="25px"
+        android:text="Crazy Candy\nGrand Opening!"
+        android:textColor="@color/title"/>
 
-</FrameLayout>
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100px" />-->
+
+    <Button
+        android:id="@+id/fbEvent"
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:gravity="center"
+        android:padding="50px"
+        android:layout_margin="50px"
+        android:text="Facebook Event"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:typeface="serif"
+        />
+
+    <Button
+        android:id="@+id/addToCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:gravity="center"
+        android:padding="25px"
+        android:layout_margin="50px"
+        android:text="Add to Calendar"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+</LinearLayout>
