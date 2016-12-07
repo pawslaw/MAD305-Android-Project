@@ -15,9 +15,9 @@ public class CandyContent {
     //Static blocks are run when the class is loaded into the project
     //think of a static block as a construct for classes that don't create objects.
     static {
-        ITEMS.add(new CandyItem("0", "S1E1 - Caretaker", "The crew begins their journey of the delta quadrant"));
-        ITEMS.add(new CandyItem("1", "S1E2 - Caretaker", "The crew continues their journey of the delta quadrant"));
-        ITEMS.add(new CandyItem("2", "S1E3 - Parallax", "Starfleet and the Maquis team up to get home"));
+        ITEMS.add(new CandyItem("0", "Cheddies", "The crunchy cheesy treat"));
+        ITEMS.add(new CandyItem("1", "BitterButter", "So butter, but so delicious"));
+        ITEMS.add(new CandyItem("2", "Timtums", "Tasty as could be, while settling your tummy"));
     }
     //We then declare an inner class named EpisodeItem
     //This class is used to represent all of our information inside of the list
