@@ -45,7 +45,7 @@ public class Candy {
         candy.setDescription("Crush those bugs.");
         candy.setPrice("$0.50");
         candy.setSugar("0g");
-        candy.setImageFilename("image_five");
+        candy.setImageFilename("candy_five");
         candyArray.add(candy);
 
         candy = new Candy();
