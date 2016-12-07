@@ -10,9 +10,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/name"
         android:text="@string/hello_blank_fragment"
-        android:padding="10dp"
         android:layout_gravity="center_horizontal"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="50dp" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -20,9 +21,12 @@
         android:id="@+id/candyImage"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:minHeight="300dp"
+        android:minHeight="250dp"
         android:layout_gravity="center_horizontal"
-        android:minWidth="300dp" />
+        android:minWidth="250dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,7 +37,9 @@
         android:layout_gravity="center_horizontal|right"
         android:textSize="24dp"
         android:textStyle="bold"
-        android:layout_marginRight="20dp" />
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,6 +48,8 @@
         android:text="@string/hello_blank_fragment"
         android:padding="10dp"
         android:layout_gravity="center_horizontal"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp" />
 
 </LinearLayout>
