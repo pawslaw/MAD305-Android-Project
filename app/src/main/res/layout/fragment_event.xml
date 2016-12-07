@@ -8,7 +8,7 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:inputType="none"
         android:textSize="20pt"
@@ -16,7 +16,8 @@
         android:textStyle="bold"
         android:padding="25px"
         android:text="Crazy Candy\nGrand Opening!"
-        android:textColor="@color/title"/>
+        android:textColor="@color/title"
+        android:layout_weight="1" />
 
     <!--<ImageView-->
         <!--android:layout_width="match_parent"-->
@@ -25,26 +26,25 @@
     <Button
         android:id="@+id/fbEvent"
         android:layout_width="match_parent"
-        android:layout_height="300px"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="50px"
-        android:layout_margin="50px"
         android:text="Facebook Event"
         android:textSize="35sp"
         android:textStyle="bold"
         android:typeface="serif"
-        />
+        android:layout_weight="1" />
 
     <Button
         android:id="@+id/addToCalendar"
         android:layout_width="match_parent"
-        android:layout_height="300px"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="25px"
-        android:layout_margin="50px"
         android:text="Add to Calendar"
         android:textSize="35sp"
         android:textStyle="bold"
-        android:typeface="serif" />
+        android:typeface="serif"
+        android:layout_weight="1" />
 
 </LinearLayout>

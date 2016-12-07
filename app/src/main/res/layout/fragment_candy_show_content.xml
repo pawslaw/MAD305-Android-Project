@@ -5,51 +5,62 @@
     tools:context=".CandyShowContentFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/name"
-        android:text="@string/hello_blank_fragment"
-        android:layout_gravity="center_horizontal"
-        android:textSize="30dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="50dp" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView2" >
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/candyImage"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:minHeight="250dp"
-        android:layout_gravity="center_horizontal"
-        android:minWidth="250dp"
-        android:layout_weight="1"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/price"
-        android:text="$999.99"
-        android:padding="10dp"
-        android:layout_gravity="center_horizontal|right"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        android:layout_marginRight="20dp"
-        android:layout_weight="1"
-        android:layout_marginTop="20dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:text="@string/hello_blank_fragment"
+                android:layout_gravity="center_horizontal"
+                android:textSize="30dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="50dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/description"
-        android:text="@string/hello_blank_fragment"
-        android:padding="10dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"
-        android:layout_weight="1"
-        android:layout_marginTop="20dp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/candyImage"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:maxHeight="120dp"
+                android:maxWidth="120dp"
+                android:minHeight="80dp"
+                android:minWidth="80dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/price"
+                android:text="$999.99"
+                android:padding="10dp"
+                android:layout_gravity="center_horizontal|right"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/description"
+                android:text="@string/hello_blank_fragment"
+                android:padding="10dp"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                android:layout_marginTop="20dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
