@@ -22,66 +22,66 @@ public class Candy {
         // -------- Duplicate Below This
         candy = new Candy();
         candy.setCalories("101");
-        candy.setName("Binary");
-        candy.setDescription("Candy sweet enough to fry your circuits.");
-        candy.setPrice("$1.00");
+        candy.setName("Cheddies");
+        candy.setDescription("Crunchy and cheesy as could be.");
+        candy.setPrice("$0.50");
         candy.setSugar("10.10g");
-        candy.setImageFilename("home_image");
+        candy.setImageFilename("candy_three");
         candyArray.add(candy);
         // -------- Duplicate above this
 
         candy = new Candy();
-        candy.setCalories("33");
-        candy.setName("Berry Steak");
-        candy.setDescription("Tastes so real, you might think you were being mauled by a bear!");
-        candy.setPrice("$2.25");
+        candy.setCalories("1000");
+        candy.setName("BitterButters");
+        candy.setDescription("Like eating real butter!");
+        candy.setPrice("$1.00");
         candy.setSugar("1.0g");
-        candy.setImageFilename("placeholder");
+        candy.setImageFilename("candy_four");
         candyArray.add(candy);
 
         candy = new Candy();
         candy.setCalories("40");
-        candy.setName("Sugar Free Sugar Cane");
-        candy.setDescription("Enjoy sugar canes without the sugar. Contains 400g of aspartame.");
-        candy.setPrice("$3.33");
+        candy.setName("BitBites");
+        candy.setDescription("Crush those bugs.");
+        candy.setPrice("$0.50");
         candy.setSugar("0g");
-        candy.setImageFilename("nav_image");
+        candy.setImageFilename("candy_five");
         candyArray.add(candy);
 
         candy = new Candy();
         candy.setCalories("10");
-        candy.setName("Very Generic Candy");
-        candy.setDescription("Very Generic Description for a very generic candy.");
-        candy.setPrice("$1.00");
+        candy.setName("Raffits");
+        candy.setDescription("We don't even know what these are.");
+        candy.setPrice("$0.05");
         candy.setSugar("10g");
-        candy.setImageFilename("placeholder");
+        candy.setImageFilename("candy_two");
         candyArray.add(candy);
 
         candy = new Candy();
         candy.setCalories("1");
-        candy.setName("Diet Candy");
+        candy.setName("Miracles");
         candy.setDescription("Only 1 calorie.");
-        candy.setPrice("$5.00");
+        candy.setPrice("$0.05");
         candy.setSugar("100g");
-        candy.setImageFilename("nav_image");
+        candy.setImageFilename("candy_one");
         candyArray.add(candy);
 
         candy = new Candy();
         candy.setCalories("20");
-        candy.setName("\"I'm Running Out Of Name Ideas\"");
-        candy.setDescription("Bittersweet candy for all the times you couldn't come up with anything else");
+        candy.setName("Timtums");
+        candy.setDescription("With only a bit of medicine taste left.");
         candy.setPrice("$0.50");
         candy.setSugar("5g");
-        candy.setImageFilename("nav_image");
+        candy.setImageFilename("candy_six");
         candyArray.add(candy);
 
         candy = new Candy();
-        candy.setCalories("You");
-        candy.setName("The Final Candy");
-        candy.setDescription("It comes.");
-        candy.setPrice("$0.00");
+        candy.setCalories("Too Many");
+        candy.setName("The Swamp Cane");
+        candy.setDescription("It has layers. Just like an onion.");
+        candy.setPrice("$0.25");
         candy.setSugar("0g");
-        candy.setImageFilename("");
+        candy.setImageFilename("candy_seven");
         candyArray.add(candy);
 
         return candyArray;

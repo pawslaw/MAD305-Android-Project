@@ -1,10 +1,11 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context="ca.stclaircollege.crazycandy.CalculatorFragment"
     android:orientation="vertical">
-    <TableRow>
+    <TableRow android:layout_weight="1"
+        android:layout_height="wrap_content">
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/txtCalc"
@@ -22,7 +23,8 @@
 
     </TableRow>
 
-    <TableRow>
+    <TableRow android:layout_weight="1"
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/fiveCent"
             android:layout_width="fill_parent"
@@ -47,7 +49,8 @@
             android:textStyle="bold"
             android:typeface="serif" />
     </TableRow>
-    <TableRow>
+    <TableRow android:layout_weight="1"
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/twentyFiveCent"
             android:layout_width="fill_parent"
@@ -71,19 +74,19 @@
             android:textStyle="bold"
             android:typeface="serif" />
     </TableRow>
-    <TableLayout>
+    <TableLayout android:layout_weight="1"
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/reset"
             android:layout_width="fill_parent"
-            android:layout_height="200px"
+            android:layout_height="100dp"
             android:layout_weight="1"
             android:gravity="center"
             android:padding="0px"
             android:text="RESET"
             android:textSize="35sp"
             android:textStyle="bold"
-            android:typeface="serif"
-            android:layout_marginTop="15pt" />
+            android:typeface="serif" />
     </TableLayout>
 
 </TableLayout>
